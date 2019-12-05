@@ -3,8 +3,9 @@ using kreaCore.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using Tweetbook.Contracts.V1;
 
-namespace Tweetbook.Controllers
+namespace Tweetbook.Controllers.V1
 {
     public class PublicacionesController : Controller
     {
@@ -20,10 +21,8 @@ namespace Tweetbook.Controllers
             }
         }
 
-        [HttpGet("api/v1/posts")]
-        public IActionResult GetAll()
-        {
-            return Ok(_posts);
-        }
+        //[HttpGet("api/v1/posts")]
+        [Route(ApiRoutes.Posts.GetAll)]
+        public IActionResult GetAll() => Ok(_posts);
     }
 }
