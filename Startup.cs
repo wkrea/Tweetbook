@@ -68,11 +68,10 @@ namespace Tweetbook
                 option.SwaggerEndpoint(swaggerOptions.UiEndpoint, swaggerOptions.Description);
             });
 
-            app.UseRouting();
-
             //app.UseAuthentication();
             //app.UseAuthorization();
 
+            app.UseRouting();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
