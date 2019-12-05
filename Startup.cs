@@ -40,6 +40,9 @@ namespace Tweetbook
             {
                 x.SwaggerDoc("v1", new OpenApiInfo { Title = "Tweetbook API", Version = "v1" });
             });
+
+            // https://andrewlock.net/new-in-aspnetcore-3-structured-logging-for-startup-messages/
+            services.Configure<ConsoleLifetimeOptions>(opts => opts.SuppressStatusMessages = true);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
