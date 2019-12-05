@@ -1,17 +1,14 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using Tweetbook.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using kreaCore.Options;
+using Swashbuckle.AspNetCore.Swagger;
+using Microsoft.OpenApi.Models;
 
 namespace Tweetbook
 {
@@ -32,8 +29,20 @@ namespace Tweetbook
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<DataContext>();
+
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+            services.AddMvc();
+
+            // https://stackoverflow.com/questions/58362757/could-not-load-type-microsoft-aspnetcore-mvc-mvcjsonoptions-from-assembly-mi
+            services.AddSwaggerGen(x =>
+            {
+                x.SwaggerDoc("v1", new OpenApiInfo { Title = "Tweetbook API", Version = "v1" });
+            });
+
+            // https://andrewlock.net/new-in-aspnetcore-3-structured-logging-for-startup-messages/
+            services.Configure<ConsoleLifetimeOptions>(opts => opts.SuppressStatusMessages = true);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,16 +54,24 @@ namespace Tweetbook
             }
             else
             {
-               app.UseHsts();
+                app.UseHsts();
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
-            //app.UseRouting();
+
+            var swaggerOptions = new SwaggerOpts();
+            Configuration.GetSection(nameof(SwaggerOptions)).Bind(swaggerOptions);
+            app.UseSwagger(option => { option.RouteTemplate = swaggerOptions.JsonRoute; });
+            app.UseSwaggerUI(option =>
+            {
+                option.SwaggerEndpoint(swaggerOptions.UiEndpoint, swaggerOptions.Description);
+            });
 
             //app.UseAuthentication();
             //app.UseAuthorization();
 
+            app.UseRouting();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

@@ -21,6 +21,12 @@ namespace Tweetbook
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
-                });
+                }).ConfigureLogging(loggin =>
+                {
+                    //https://andrewlock.net/new-in-aspnetcore-3-structured-logging-for-startup-messages/
+                    loggin.AddConsole();
+                    loggin.AddDebug();
+                }
+                );
     }
 }
