@@ -8,7 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using kreaCore.Options;
 using Swashbuckle.AspNetCore.Swagger;
-using Microsoft.OpenApi.Models;
+using kreaCore.Installers;
 
 namespace Tweetbook
 {
@@ -24,22 +24,7 @@ namespace Tweetbook
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<DataContext>(options =>
-                options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<DataContext>();
-
-            services.AddControllersWithViews();
-            services.AddRazorPages();
-
-            services.AddMvc();
-
-            // https://stackoverflow.com/questions/58362757/could-not-load-type-microsoft-aspnetcore-mvc-mvcjsonoptions-from-assembly-mi
-            services.AddSwaggerGen(x =>
-            {
-                x.SwaggerDoc("v1", new OpenApiInfo { Title = "Tweetbook API", Version = "v1" });
-            });
+            services.InstallServices<Startup>(Configuration);
 
             // https://andrewlock.net/new-in-aspnetcore-3-structured-logging-for-startup-messages/
             services.Configure<ConsoleLifetimeOptions>(opts => opts.SuppressStatusMessages = true);

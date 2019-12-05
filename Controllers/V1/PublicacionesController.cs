@@ -21,7 +21,7 @@ namespace Tweetbook.Controllers.V1
             }
         }
 
-        //[HttpGet("api/v1/posts")]
+        [HttpGet]
         [Route(ApiRoutes.Posts.GetAll)]
         public IActionResult GetAll() => Ok(_posts);
     }
