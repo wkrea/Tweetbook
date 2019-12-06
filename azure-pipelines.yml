@@ -1,3 +1,6 @@
+## Revisar para continuar
+# https://dev.to/raznerd/azure-pipelines-how-to-restore-local-nuget-packages-38o
+
 # ASP.NET Core (.NET Framework)
 # Build and test ASP.NET Core projects targeting the full .NET Framework.
 # Add steps that publish symbols, save build artifacts, and more:
@@ -10,12 +13,22 @@ pool:
   vmImage: 'windows-latest'
 
 variables:
+  appName: 'Tweetbook'
   solution: '**/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
 steps:
 - task: NuGetToolInstaller@1
+
+# do this before your build tasks
+- task: DotNetCoreCLI@2
+  displayName: Restore
+  inputs:
+    command: restore
+    projects: '$(appName).csproj'
+    feedsToUse: kreaCore/kreaCore
+    nugetConfigPath: ./AzurePipeline/NuGet.config    # Relative to root of the repository
 
 - task: NuGetCommand@2
   inputs:
