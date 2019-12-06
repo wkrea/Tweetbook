@@ -13,7 +13,6 @@ pool:
   vmImage: 'windows-latest'
 
 variables:
-  appName: 'Tweetbook'
   solution: '**/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
@@ -24,9 +23,6 @@ steps:
     versionSpec: 
     checkLatest: true
 
-
-
-
 - task: NuGetCommand@2
   inputs:
     command: 'restore'
@@ -35,38 +31,9 @@ steps:
     nugetConfigPath: './AzurePipeline/nuget.config'
     externalFeedCredentials: 'kreaCoreNugetDownloader'
 
-
-
-
-
-
-
-
-
-
-
-
-# # do this before your build tasks
-# - task:  NuGetCommand@2
-#   displayName: Restore
-#   inputs:
-#     command: restore
-#     restoreSolution: '**/*.sln'
-#     feedsToUse: config
-#     nugetConfigPath: ./AzurePipeline/NuGet.config    # Relative to root of the repository
-
-# - task: NuGetCommand@2
-#   inputs:
-#     restoreSolution: '$(solution)'
-
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
     msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
-
-- task: VSTest@2
-  inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
