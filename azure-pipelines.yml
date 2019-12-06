@@ -20,15 +20,25 @@ variables:
 
 steps:
 - task: NuGetToolInstaller@1
-
-# do this before your build tasks
-- task:  NuGetCommand@2
-  displayName: Restore
   inputs:
-    command: restore
+    versionSpec: 
+    checkLatest: true
+
+- task: NuGetCommand@2
+  inputs:
+    command: 'restore'
     restoreSolution: '**/*.sln'
-    feedsToUse: config
-    nugetConfigPath: ./AzurePipeline/NuGet.config    # Relative to root of the repository
+    feedsToUse: 'select'
+    vstsFeed: '7053f183-58c7-41fb-8253-57396bdc1de1/216f9451-f083-448e-afba-10523986517d'
+
+# # do this before your build tasks
+# - task:  NuGetCommand@2
+#   displayName: Restore
+#   inputs:
+#     command: restore
+#     restoreSolution: '**/*.sln'
+#     feedsToUse: config
+#     nugetConfigPath: ./AzurePipeline/NuGet.config    # Relative to root of the repository
 
 # - task: NuGetCommand@2
 #   inputs:
