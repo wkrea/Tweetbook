@@ -10,7 +10,7 @@ Guiado desde https://www.youtube.com/watch?v=sdlt3-ptt9g&amp;list=PLUOequmGnXxOg
 ## se crea el proyecto en DevOps
 ## Se agrega el pipeline con sus pasoss
 
-Uno de de los pasos del Pipeline implica la restauración de nugets desde un Feed rpivado de la organización
+Una de las **Task** del Pipeline implica la restauración de nugets desde un Feed rpivado de la organización
 
 > Para ello se requiere crear una conexión para acceso a nuget del repositorio privado de la organización para su descarga y restauración
 de la siguiente manera:
@@ -18,6 +18,11 @@ de la siguiente manera:
 >> * crear un Token de acceso de solo lectura para Nugets, desde **Personal Access Tokens**, se necesitará para suministrar acceso a la conexión que Restaura Nugets en el Pipeline
 
 <table>
+  <tr>
+    <th>
+      Creación del Service Connection
+    </th>
+  </tr>
   <tr>
     <td>
       1. Ingresar al proyecto<br/>
@@ -33,7 +38,26 @@ de la siguiente manera:
     </td>
   </tr>
 </table>
-======
+
+## Los resultados!!! 
+<table>
+  <tr>
+    <th>
+      Creación de la Task
+    </th>
+    <th>
+      Resultado de la ejecución
+    </th>
+  </tr>
+  <tr>
+    <td>
+      <img src="https://github.com/wkrea/Tweetbook/blob/master/Docs/CrearPipeline/pipelineTask.gif?raw=true"></img>
+    </td>
+    <td>
+      <img src="https://github.com/wkrea/Tweetbook/blob/master/Docs/CrearPipeline/Ejecuci%C3%B3n.gif?raw=true"></img>
+    </td>
+  </tr>
+</table>
 
 > contenido del archivo `nuget.config`
 ```xml
@@ -45,6 +69,7 @@ de la siguiente manera:
   </packageSources>
 </configuration>
 ```
+
 > ejemplo de la tarea Nuget Restore dentro de `azure-pipelines.yml`
 ```yml
 - task: NuGetCommand@2
