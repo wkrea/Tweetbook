@@ -85,3 +85,9 @@ de la siguiente manera:
 
 # Como hacer Deploy sobre AWS, Heroku, Azure de un repo con un solo click en el README
 https://github.com/Erudika/scoold
+
+
+# Referencias y enlaces de interes
+* https://dev.to/raznerd/azure-pipelines-how-to-restore-local-nuget-packages-38o
+* https://mallibone.com/post/private-nuget-feed-azure-devops
+* https://intercom.help/appcenter/en/articles/2216043-restore-private-azuredevops-package-management-feeds-using-pat
