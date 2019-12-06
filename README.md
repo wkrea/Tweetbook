@@ -3,7 +3,8 @@ ebwrxkgj6a3q7man2ycrn5itb2qvuew6w2vd36r5abt7du5wlmba
 
 
 # Tweetbook
-Guiado desde https://www.youtube.com/watch?v=sdlt3-ptt9g&amp;list=PLUOequmGnXxOgmSDWU7Tl6iQTsOtyjtwU&amp;index=1
+Guiado desde [ASP.NET Core 2.2 & 3 REST API Tutorial](https://www.youtube.com/watch?v=sdlt3-ptt9g&amp;list=PLUOequmGnXxOgmSDWU7Tl6iQTsOtyjtwU&amp;index=1)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ESdvXlrG9zQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 # Construir nuget desde Pipeline
 
