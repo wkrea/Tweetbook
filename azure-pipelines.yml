@@ -30,9 +30,9 @@ steps:
     feedsToUse: kreaCore/kreaCore
     nugetConfigPath: ./AzurePipeline/NuGet.config    # Relative to root of the repository
 
-- task: NuGetCommand@2
-  inputs:
-    restoreSolution: '$(solution)'
+# - task: NuGetCommand@2
+#   inputs:
+#     restoreSolution: '$(solution)'
 
 - task: VSBuild@1
   inputs:
