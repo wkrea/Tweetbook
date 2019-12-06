@@ -22,12 +22,12 @@ steps:
 - task: NuGetToolInstaller@1
 
 # do this before your build tasks
-- task: DotNetCoreCLI@2
+- task:  NuGetCommand@2
   displayName: Restore
   inputs:
     command: restore
-    projects: '$(appName).csproj'
-    feedsToUse: kreaCore/kreaCore
+    restoreSolution: '**/*.sln'
+    feedsToUse: config
     nugetConfigPath: ./AzurePipeline/NuGet.config    # Relative to root of the repository
 
 # - task: NuGetCommand@2
