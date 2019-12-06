@@ -24,13 +24,15 @@ steps:
     versionSpec: 
     checkLatest: true
 
+
+
 - task: NuGetCommand@2
   inputs:
     command: 'restore'
     restoreSolution: '**/*.sln'
     feedsToUse: 'select'
     vstsFeed: '7053f183-58c7-41fb-8253-57396bdc1de1/216f9451-f083-448e-afba-10523986517d'
-    externalFeedCredentials: NugetDownload
+    externalFeedCredentials: kreaNugetDownloader
 
 
 # # do this before your build tasks
