@@ -7,10 +7,18 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
 trigger:
-- master
-
+  branches:
+    include:
+    - master
+    - releases/*
+  paths:
+    exclude:
+      - Docs/*
+      - .gitignore
+      - README.md
 pool:
-  vmImage: 'windows-latest'
+  #vmImage: 'windows-latest'
+  vmImage: 'Ubuntu-16.04'
 
 variables:
   solution: '**/*.sln'
