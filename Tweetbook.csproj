@@ -9,6 +9,7 @@
 
 
   <ItemGroup>
+    <PackageReference Include="krea.Core" Version="0.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.0.0" />
@@ -20,11 +21,6 @@
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.9.10" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.0.0-rc4" />
-  </ItemGroup>
-
-
-  <ItemGroup>
-    <ProjectReference Include="..\kreaCore\kreaCore.csproj" />
   </ItemGroup>
 
 </Project>
