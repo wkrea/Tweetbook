@@ -52,10 +52,10 @@ de la siguiente manera:
   </tr>
   <tr>
     <td>
-      <img src="https://github.com/wkrea/Tweetbook/blob/master/Docs/CrearPipeline/pipelineTask.gif?raw=true"></img>
+      <img src="https://media.giphy.com/media/Kc8MY6nol3tH5vhJXm/giphy.gif?raw=true"></img>
     </td>
     <td>
-      <img src="https://github.com/wkrea/Tweetbook/blob/master/Docs/CrearPipeline/Ejecuci%C3%B3n.gif?raw=true"></img>
+      <img src="https://media.giphy.com/media/lkcYcp0sd2lwE5ysJ9/giphy.gif?raw=true"></img>
     </td>
   </tr>
 </table>
