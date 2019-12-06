@@ -30,7 +30,7 @@ steps:
     restoreSolution: '**/*.sln'
     feedsToUse: 'select'
     vstsFeed: '7053f183-58c7-41fb-8253-57396bdc1de1/216f9451-f083-448e-afba-10523986517d'
-    externalFeedCredentials: ebwrxkgj6a3q7man2ycrn5itb2qvuew6w2vd36r5abt7du5wlmba
+    externalFeedCredentials: NugetDownload
 
 
 # # do this before your build tasks
