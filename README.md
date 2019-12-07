@@ -92,3 +92,42 @@ https://github.com/Erudika/scoold
 * https://dev.to/raznerd/azure-pipelines-how-to-restore-local-nuget-packages-38o
 * https://mallibone.com/post/private-nuget-feed-azure-devops
 * https://intercom.help/appcenter/en/articles/2216043-restore-private-azuredevops-package-management-feeds-using-pat
+
+---------
+
+## Configurando los Cover Test con SonarCloud
+
+1. Cree repo publico
+2. Enlace cuenta DevOps con SonarCloud
+3. Cree proyecto en SonarCloud 
+4. Asigne nombre y clave al proyecto `wkreaTestSonarCloud`
+5. Instale la aplicación SonarCloud desde el [Markerplace Azure](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarcloud)
+
+6. Desde SonarCloud generar un token de acceso
+> wkrea/TestSonarCloud - fcd133a190ea9c18a86f1b25af82d61dfbe11dd4
+
+7. Luego desde DevOps crear Service Connection para SonarCloud (fcd133a190ea9c18a86f1b25af82d61dfbe11dd4)
+Insertar GIF
+
+8. Siguiendo el [tutorial](http://diegogiacomelli.com.br/publishing-a-dotnet-core-project-to-sonarcloud-with-cake/)
+9. Creando la tarea de ejecución en Pipeline
+```
+```
+
+# Referencias
+* https://docs.microsoft.com/en-us/labs/devops/sonarcloudlab/index
+
+
+# Referencias
+
+https://sonarcloud.io/dashboard?id=wkreaTestSonarCloud
+> Invoke-WebRequest https://cakebuild.net/download/bootstrapper/windows -OutFile build
+./build #(Win or Lin)
+https://cakebuild.net/docs/tutorials/setting-up-a-new-project
+http://diegogiacomelli.com.br/publishing-a-dotnet-core-project-to-sonarcloud-with-cake/
+
+https://geeks.ms/jlguerrero/en/2019/01/13/code-analysis-and-code-coverage-using-netcore-vs-code-publishing-to-sonarqube-sonarcloud-io/
+http://www.serginet.com/2018/11/net-core-cobertura.html
+https://github.com/SonarSource/sq-com_example_standard-sqscanner-travis
+https://github.com/SonarSource/sq-com_example_standard-sqscanner-travis
+https://github.com/SonarSource/sonarcloud_examples
